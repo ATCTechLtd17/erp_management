@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // src/routes/index.tsx
 import { Routes, Route } from 'react-router-dom';
 import DashboardLayout from '../components/layout/DashboardLayout';
@@ -29,6 +30,15 @@ import AccountGroupForm from '../pages/accounting/AccountGroup';
 import AccountHeadForm from '../pages/accounting/AccountHead';
 import GeneralLedgerForm from '../pages/accounting/GeneralLedger';
 import UserManagement from '../pages/security/UserManagement';
+import UserPermission from '../pages/security/UserPermissions';
+import InvoiceRemoval from '../pages/security/RemoveInvoice';
+import ProductManufactureMaterials from '../pages/production/ProductRecipe';
+import ProductionAndConsumption from '../pages/production/Production';
+import ManualConsumption from '../pages/production/ManualConsumption';
+import MessageSend from '../pages/customer/Message';
+import CustomerInformation from '../pages/customer/CustomerInformation';
+import WarehouseSendProduct from '../pages/warehouse/WarehouseSendProduct';
+import WarehouseReceiveProduct from '../pages/warehouse/WarehouseRecieveProduct';
 
 // Dashboard Routes
 
@@ -96,8 +106,34 @@ const AppRoutes = () => {
         <Route path="accounting/ledger" element={<GeneralLedgerForm />} />
         {/* ... */}
 
-        <Route path="security/permissions" element={<UserManagement />} />
-      </Route>
+        <Route path="security/create-user" element={<UserManagement />} />
+        <Route path="security/permissions" element={<UserPermission onSave={function (userId: string, email: string, permissions: MenuPermission[]): void {
+          throw new Error('Function not implemented.');
+        } } onCancel={function (): void {
+          throw new Error('Function not implemented.');
+        } } />} />
+
+<Route path="security/remove-invoice" element={<InvoiceRemoval onRemove={function (invoiceNo: string): Promise<void> {
+          throw new Error('Function not implemented.');
+        } } onCancel={function (): void {
+          throw new Error('Function not implemented.');
+        } } />} />
+<Route path="accounting/ledger" element={<GeneralLedgerForm />} />
+
+
+<Route path="production/recipe" element={<ProductManufactureMaterials />} />
+<Route path="production/manage" element={<ProductionAndConsumption />} />
+<Route path="production/consumption" element={<ManualConsumption />} />
+
+
+<Route path="customer/message" element={<MessageSend />} />
+<Route path="customer/information" element={<CustomerInformation />} />
+
+<Route path="warehouse/send" element={<WarehouseSendProduct />} />
+<Route path="warehouse/receive" element={<WarehouseReceiveProduct />} />
+
+
+      </Route> 
     </Routes>
   );
 };
