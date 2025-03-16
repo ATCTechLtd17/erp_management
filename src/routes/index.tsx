@@ -20,6 +20,15 @@ import EmployeeInformation from '../pages/Setup/EmployeeInformation';
 import SizeInformation from '../pages/Setup/SizeInformation';
 import CommissionManagement from '../pages/Setup/Commission';
 import PurchaseInformation from '../pages/purchase/PurchaseInformation';
+import PurchaseReturnInformation from '../pages/purchase/PurchaseReturnInfo';
+import SalesInformation from '../pages/Sales/SalesInfromation';
+import SalesReturnInformation from '../pages/Sales/SalesReturnInfor';
+import OnlineOrders from '../pages/Sales/Order';
+import AdjustmentInformation from '../pages/adjustment/AdjustmentInformation';
+import AccountGroupForm from '../pages/accounting/AccountGroup';
+import AccountHeadForm from '../pages/accounting/AccountHead';
+import GeneralLedgerForm from '../pages/accounting/GeneralLedger';
+import UserManagement from '../pages/security/UserManagement';
 
 // Dashboard Routes
 
@@ -67,17 +76,27 @@ const AppRoutes = () => {
 
         {/* Purchase Routes */}
         <Route path="purchase/information" element={<PurchaseInformation/>} />
-         {/*
-        <Route path="purchase/return" element={<PurchaseReturn />} /> */}
+      
+        <Route path="purchase/return" element={<PurchaseReturnInformation />} /> 
 
         {/* Sales Routes */}
-        {/* <Route path="sales" element={<Sales />} />
-        <Route path="sales/return" element={<SalesReturn />} />
-        <Route path="sales/order" element={<Order />} />
-        <Route path="sales/delivery" element={<Delivery />} /> */}
+ <Route path="sales" element={<SalesInformation />} />
+      <Route path="sales/return" element={<SalesReturnInformation />} />
+      
+        <Route path="sales/order" element={<OnlineOrders />} />
+        <Route path="adjustment" element={<AdjustmentInformation />} />
+           {/*
+        <Route path="sales/delivery" element={<Delivery />} />  */}
 
         {/* Add all other routes here */}
+
+        <Route path="accounting/group" element={<AccountGroupForm />} />
+        <Route path="accounting/head" element={<AccountHeadForm />} />
+        <Route path="accounting/payment" element={<AccountHeadForm />} />
+        <Route path="accounting/ledger" element={<GeneralLedgerForm />} />
         {/* ... */}
+
+        <Route path="security/permissions" element={<UserManagement />} />
       </Route>
     </Routes>
   );
